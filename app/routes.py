@@ -1,6 +1,6 @@
 import os
 import sqlite3
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect
 from datetime import datetime
 
 from app.forms import AppointmentForm
