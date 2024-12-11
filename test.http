@@ -1,0 +1,6 @@
+# -*- restclient -*-
+:host = localhost
+:port = 5001
+:protocol = http
+# First GET the index
+GET :protocol://:host::port/
