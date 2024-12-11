@@ -15,13 +15,11 @@
         </tr>
       </thead>
       <tbody>
-        {% for row in rows %} {% set start_time = datetime.strptime(row[2],
-        "%Y-%m-%d %H:%M:%S") %} {% set end_time = datetime.strptime(row[3],
-        "%Y-%m-%d %H:%M:%S") %}
+        {% for row in rows %}
         <tr>
-          <td>{{ row[1] }}</td>
-          <td>{{ start_time.strftime("%H:%M") }}</td>
-          <td>{{ end_time.strftime("%H:%M") }}</td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.start_time }}</td>
+          <td>{{ row.end_time }}</td>
         </tr>
         {% endfor %}
       </tbody>
