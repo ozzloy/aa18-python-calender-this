@@ -25,12 +25,11 @@ class AppointmentForm(FlaskForm):
     submit = SubmitField("create appointment")
 
     def validate_end_date(form, _field):
-        start_datetime = datetime.combine(
+        start = datetime.combine(
             form.start_date.data, form.start_time.data
         )
-        end_datetime = datetime.combine(
-            form.end_date.data, form.end_time.data
-        )
-        if end_datetime <= start_datetime:
-            msg = "end must be after start"
-            raise ValidationError(msg)
+        end = datetime.combine(form.end_date.data, form.end_time.data)
+        if start.date != end.date:
+            raise ValidationError("start and end must be on same day")
+        if end <= start:
+            raise ValidationError("start must be before end")
